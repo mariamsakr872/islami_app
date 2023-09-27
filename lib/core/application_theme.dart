@@ -35,22 +35,22 @@ class ApplicationTheme {
       titleLarge: GoogleFonts.elMessiri(
         color: Colors.black,
         fontSize: 30,
-        fontWeight: FontWeight.w700,
+        fontWeight: FontWeight.w800,
       ),
       bodyLarge: GoogleFonts.elMessiri(
         color: Colors.black,
         fontSize: 25,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w700,
       ),
-      bodyMedium: GoogleFonts.inter(
+      bodyMedium: GoogleFonts.elMessiri(
         color: Colors.black,
         fontSize: 25,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w600,
       ),
-      bodySmall: GoogleFonts.inter(
+      bodySmall: GoogleFonts.elMessiri(
         color: Colors.black,
         fontSize: 20,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w600,
       ),
     ),
   );
