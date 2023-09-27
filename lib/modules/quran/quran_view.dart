@@ -5,7 +5,7 @@ import 'package:islami_v2_app/modules/quran/widget/quran_item.dart';
 class QuranView extends StatelessWidget {
   QuranView({super.key});
 
-  List<String> suraNames = [
+   List<String> suraNames = [
     "الفاتحه",
     "البقرة",
     "آل عمران",
@@ -167,7 +167,10 @@ class QuranView extends StatelessWidget {
           child: ListView.builder(
             itemBuilder: (context, index) => GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, QuranDetailsView.routeName);
+                Navigator.pushNamed(context, QuranDetailsView.routeName,
+                    arguments: SuraDetails(
+                        suraName: suraNames[index],
+                        suraNumber: "${index + 1}"));
               },
               child: QuranItem(
                 suraName: suraNames[index],
@@ -180,4 +183,11 @@ class QuranView extends StatelessWidget {
       ],
     );
   }
+}
+
+class SuraDetails {
+  final String suraName;
+  final String suraNumber;
+
+  SuraDetails({required this.suraName, required this.suraNumber});
 }
