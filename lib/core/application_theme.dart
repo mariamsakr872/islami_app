@@ -27,29 +27,37 @@ class ApplicationTheme {
       selectedItemColor: Colors.black,
       unselectedIconTheme: IconThemeData(
         color: Colors.white,
-        size: 28,
+        size: 30,
       ),
       unselectedItemColor: Colors.white,
+      selectedLabelStyle: TextStyle(
+        color: Colors.black,
+        fontSize: 16,
+      ),
+      unselectedLabelStyle: TextStyle(
+        color: Colors.black,
+        fontSize: 16,
+      ),
     ),
     textTheme: TextTheme(
       titleLarge: GoogleFonts.elMessiri(
         color: Colors.black,
         fontSize: 30,
-        fontWeight: FontWeight.w800,
+        fontWeight: FontWeight.w700,
       ),
       bodyLarge: GoogleFonts.elMessiri(
         color: Colors.black,
         fontSize: 25,
-        fontWeight: FontWeight.w700,
+        fontWeight: FontWeight.w600,
       ),
-      bodyMedium: GoogleFonts.elMessiri(
+      bodyMedium: GoogleFonts.inter(
         color: Colors.black,
         fontSize: 25,
         fontWeight: FontWeight.w600,
       ),
-      bodySmall: GoogleFonts.elMessiri(
+      bodySmall: GoogleFonts.amiri(
         color: Colors.black,
-        fontSize: 20,
+        fontSize: 21,
         fontWeight: FontWeight.w600,
       ),
     ),
