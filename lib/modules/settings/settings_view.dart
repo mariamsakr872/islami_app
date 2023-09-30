@@ -5,6 +5,10 @@ class SettingsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text("Settings View"));
+    var theme = Theme.of(context);
+    var mediaQuery = MediaQuery.of(context).size;
+    return const Column(
+      children: [],
+    );
   }
 }

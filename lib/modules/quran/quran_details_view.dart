@@ -52,7 +52,7 @@ class _QuranDetailsViewState extends State<QuranDetailsView> {
                 children: [
                   Text(
                     args.suraName,
-                    style: theme.textTheme.bodyLarge,
+                    style: theme.textTheme.bodyMedium,
                   ),
                   const SizedBox(
                     width: 20,
@@ -64,7 +64,7 @@ class _QuranDetailsViewState extends State<QuranDetailsView> {
                 ],
               ),
               Divider(
-                thickness: 1.2,
+                thickness: 1.5,
                 color: theme.primaryColor,
                 indent: 50,
                 endIndent: 50,
