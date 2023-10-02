@@ -4,5 +4,11 @@
     "hadeth" : "حديث",
     "tasbeh" : "تسبيح",
     "radio"  : "راديو",
-    "settings" : "الأعدادات"
+    "settings" : "الأعدادات",
+    "theme" : "النمط",
+    "language" : "اللغه",
+    "dark" : "ليلي",
+    "light" : "نهاري"
+
+
 }

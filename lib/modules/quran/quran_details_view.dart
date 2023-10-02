@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_v2_app/modules/quran/quran_view.dart';
+import 'package:provider/provider.dart';
+
+import '../../app_provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class QuranDetailsView extends StatefulWidget {
   static const String routeName = "quran_details";
@@ -21,17 +25,21 @@ class _QuranDetailsViewState extends State<QuranDetailsView> {
     if (content.isEmpty) readFile(args.suraNumber);
     var mediaQuery = MediaQuery.of(context).size;
     var theme = Theme.of(context);
+    var appProvider = Provider.of<AppProvider>(context);
+    var local = AppLocalizations.of(context);
 
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
           image: DecorationImage(
-        image: AssetImage("assets/images/background_light.png"),
+        image: AssetImage(
+          appProvider.backgroundImage(),
+        ),
         fit: BoxFit.cover,
       )),
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            "إسلامي",
+            local!.islami,
             style: theme.textTheme.titleLarge,
           ),
         ),
@@ -42,7 +50,7 @@ class _QuranDetailsViewState extends State<QuranDetailsView> {
           const EdgeInsets.only(right: 30, left: 30, top: 30, bottom: 120),
           padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
           decoration: BoxDecoration(
-            color: const Color(0xFFF8F8F8).withOpacity(0.8),
+            color: theme.colorScheme.background.withOpacity(0.8),
             borderRadius: BorderRadius.circular(25),
           ),
           child: Column(
@@ -52,30 +60,34 @@ class _QuranDetailsViewState extends State<QuranDetailsView> {
                 children: [
                   Text(
                     args.suraName,
-                    style: theme.textTheme.bodyMedium,
+                    style: theme.textTheme.bodyMedium
+                        ?.copyWith(color: theme.colorScheme.onSecondary),
                   ),
                   const SizedBox(
                     width: 20,
                   ),
-                  const Icon(
+                  Icon(
                     Icons.play_circle,
                     size: 32,
+                    color: theme.colorScheme.onSecondary,
                   ),
                 ],
               ),
-              Divider(
+              const Divider(
                 thickness: 1.5,
-                color: theme.primaryColor,
                 indent: 50,
                 endIndent: 50,
                 height: 10,
               ),
               Expanded(
                 child: ListView.builder(
-                  itemBuilder: (context, index) => Text(
-                    allVerses[index],
-                    textAlign: TextAlign.center,
-                    style: theme.textTheme.bodySmall,
+                  itemBuilder: (context, index) => Padding(
+                    padding: const EdgeInsets.all(6.0),
+                    child: Text(
+                      "${allVerses[index]}(${index + 1})",
+                      textAlign: TextAlign.center,
+                      style: theme.textTheme.bodySmall,
+                    ),
                   ),
                   itemCount: allVerses.length,
                 ),

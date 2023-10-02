@@ -19,9 +19,8 @@ class _HadethViewState extends State<HadethView> {
     return Column(
       children: [
         Image.asset("assets/images/hadeth_header.png"),
-        Divider(
+        const Divider(
           thickness: 1.2,
-          color: theme.primaryColor,
           height: 5,
           indent: 10,
           endIndent: 10,
@@ -31,9 +30,8 @@ class _HadethViewState extends State<HadethView> {
           textAlign: TextAlign.center,
           style: theme.textTheme.bodyLarge,
         ),
-        Divider(
+        const Divider(
           thickness: 1.2,
-          color: theme.primaryColor,
           height: 5,
           indent: 10,
           endIndent: 10,
@@ -55,7 +53,6 @@ class _HadethViewState extends State<HadethView> {
                   ),
               separatorBuilder: (context, index) => Divider(
                     thickness: 1.2,
-                    color: theme.primaryColor,
                     height: 8,
                     indent: 50,
                     endIndent: 50,

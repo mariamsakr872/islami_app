@@ -1,7 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:islami_v2_app/app_provider.dart';
+import 'package:islami_v2_app/core/application_theme.dart';
 import 'package:islami_v2_app/layout/home_layout.dart';
+import 'package:provider/provider.dart';
 
 class SplashScreen extends StatelessWidget {
   static const String routeName = "splash_screen";
@@ -19,9 +22,10 @@ class SplashScreen extends StatelessWidget {
       },
     );
     var mediaQuery = MediaQuery.of(context).size;
+    var appProvider = Provider.of<AppProvider>(context);
     return Scaffold(
       body: Image.asset(
-        "assets/images/splash_background.png",
+        appProvider.splashBackground(),
         width: mediaQuery.width,
         height: mediaQuery.height,
         fit: BoxFit.cover,

@@ -19,17 +19,17 @@ class RadioView extends StatelessWidget {
             Icon(
               FontAwesomeIcons.forwardStep,
               size: 30,
-              color: theme.primaryColor,
+              color: theme.colorScheme.onSecondary,
             ),
             Icon(
               FontAwesomeIcons.play,
               size: 30,
-              color: theme.primaryColor,
+              color: theme.colorScheme.onSecondary,
             ),
             Icon(
               FontAwesomeIcons.backwardStep,
               size: 30,
-              color: theme.primaryColor,
+              color: theme.colorScheme.onSecondary,
             ),
           ],
         )

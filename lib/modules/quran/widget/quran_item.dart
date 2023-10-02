@@ -4,7 +4,8 @@ class QuranItem extends StatelessWidget {
   final String suraName;
   final String suraNumber;
 
-  QuranItem({super.key, required this.suraName, required this.suraNumber});
+  const QuranItem(
+      {super.key, required this.suraName, required this.suraNumber});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class QuranItem extends StatelessWidget {
         Container(
           width: 1.2,
           height: 45,
-          color: theme.primaryColor,
+          color: theme.colorScheme.secondary,
         ),
         Expanded(
             child: Text(
