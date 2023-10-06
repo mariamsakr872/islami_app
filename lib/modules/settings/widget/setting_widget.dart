@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 
-class SettingWidget extends StatelessWidget {
-  final String optionTitle;
+typedef SettingsFunction = void Function();
 
-  const SettingWidget({super.key, required this.optionTitle});
+class SettingWidget extends StatelessWidget {
+  final String title, selectedOption;
+  final SettingsFunction onClicked;
+
+  const SettingWidget(
+      {super.key,
+      required this.title,
+      required this.selectedOption,
+      required this.onClicked});
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +22,14 @@ class SettingWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            optionTitle,
+            title,
             textAlign: TextAlign.start,
             style: theme.textTheme.bodyMedium,
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              onClicked();
+            },
             child: Container(
               height: 55,
               width: mediaQuery.width,
@@ -29,18 +38,21 @@ class SettingWidget extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
-                  color: theme.primaryColor,
-                  width: 1,
+                  color: theme.colorScheme.secondary,
+                  width: 1.2,
                 ),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "English",
+                    selectedOption,
                     style: theme.textTheme.bodyMedium,
                   ),
-                  const Icon(Icons.arrow_drop_down_sharp)
+                  Icon(
+                    Icons.arrow_drop_down_sharp,
+                    color: theme.colorScheme.onSecondary,
+                  ),
                 ],
               ),
             ),

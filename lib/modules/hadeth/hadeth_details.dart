@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:islami_v2_app/app_provider.dart';
 import 'package:islami_v2_app/modules/hadeth/hadeth_view.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HadethDetails extends StatelessWidget {
   static const String routeName = "hadeth_details";
@@ -11,16 +14,20 @@ class HadethDetails extends StatelessWidget {
     var theme = Theme.of(context);
     var mediaQuery = MediaQuery.of(context).size;
     var args = ModalRoute.of(context)?.settings.arguments as HadethContent;
+    var appProvider = Provider.of<AppProvider>(context);
+    var local = AppLocalizations.of(context);
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
           image: DecorationImage(
-        image: AssetImage("assets/images/background_light.png"),
+        image: AssetImage(
+          appProvider.backgroundImage(),
+        ),
         fit: BoxFit.cover,
       )),
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            "إسلامي",
+            local!.islami,
             style: theme.textTheme.titleLarge,
           ),
         ),
@@ -31,7 +38,7 @@ class HadethDetails extends StatelessWidget {
               const EdgeInsets.only(right: 30, left: 30, top: 30, bottom: 120),
           padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
           decoration: BoxDecoration(
-            color: const Color(0xFFF8F8F8).withOpacity(0.8),
+            color: theme.colorScheme.background.withOpacity(0.8),
             borderRadius: BorderRadius.circular(25),
           ),
           child: Column(
@@ -39,11 +46,11 @@ class HadethDetails extends StatelessWidget {
               Text(
                 args.title,
                 textAlign: TextAlign.center,
-                style: theme.textTheme.bodyMedium,
+                style: theme.textTheme.bodyMedium
+                    ?.copyWith(color: theme.colorScheme.onSecondary),
               ),
-              Divider(
+              const Divider(
                 thickness: 1.2,
-                color: theme.primaryColor,
                 indent: 50,
                 endIndent: 50,
                 height: 10,

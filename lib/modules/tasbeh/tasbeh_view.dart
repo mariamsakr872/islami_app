@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:islami_v2_app/core/application_theme.dart';
+import 'package:provider/provider.dart';
+
+import '../../app_provider.dart';
 
 class TasbehView extends StatefulWidget {
   const TasbehView({super.key});
@@ -22,6 +26,7 @@ class _TasbehViewState extends State<TasbehView> {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     var mediaQuery = MediaQuery.of(context).size;
+    var appProvider = Provider.of<AppProvider>(context);
     return SizedBox(
       width: double.infinity,
       child: Column(
@@ -35,7 +40,9 @@ class _TasbehViewState extends State<TasbehView> {
             children: [
               Container(
                   margin: const EdgeInsets.only(left: 50),
-                  child: Image.asset("assets/images/head_of_sebha.png")),
+                  child: Image.asset(
+                    appProvider.headOfSebha(),
+                  )),
               Container(
                   margin: const EdgeInsets.only(top: 70, bottom: 30),
                   child: Transform.rotate(
@@ -44,8 +51,9 @@ class _TasbehViewState extends State<TasbehView> {
                           onTap: () {
                             clickOnSebha();
                           },
-                          child:
-                              Image.asset("assets/images/body_of_sebha.png")))),
+                          child: Image.asset(
+                            appProvider.bodyOfSebha(),
+                          )))),
             ],
           ),
           const Text(
@@ -73,7 +81,7 @@ class _TasbehViewState extends State<TasbehView> {
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: theme.primaryColor,
+              color: theme.colorScheme.secondary,
             ),
             child: Text(
               azkar[currentIndex],
